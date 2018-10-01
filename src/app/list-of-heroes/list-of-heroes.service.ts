@@ -24,6 +24,11 @@ export class ListOfHeroesService {
     return this.httpClient.put(url, data);
   }
 
+  createHero(hero){
+    const url = `http://localhost:3200/heroes/new`;
+    return this.httpClient.post(url, hero);
+
+  }
   deleteHero(id) {
     const url = `http://localhost:3200/heroes/${id}`;
     return this.httpClient.delete(url);

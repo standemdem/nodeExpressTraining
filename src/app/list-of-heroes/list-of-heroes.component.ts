@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ListOfHeroesService} from "./list-of-heroes.service";
-import {map, tap} from "rxjs/operators";
+import {map} from "rxjs/operators";
 import {HeroInterface} from "../../../interfaces/hero.interface";
 
 @Component({

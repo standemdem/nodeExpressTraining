@@ -1,4 +1,6 @@
 <div *ngFor="let hero of listOfHeroes">
-  <p>{{hero.name}} </p> <button type="button" (click)="erase(hero.id)">delete</button>
+  <p>{{hero.name}} {{hero.id}}</p>
+  <button type="button" (click)="erase(hero.id)">delete</button>
   <a routerLink="{{hero.id}}">fiche hero</a>
 </div>
+<app-add-hero [listOfHeroes]="listOfHeroes"></app-add-hero>

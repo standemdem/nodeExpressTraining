@@ -7,6 +7,7 @@ import {ListOfHeroesComponent} from "./list-of-heroes/list-of-heroes.component";
 import {HttpClientModule} from "@angular/common/http";
 import {HeroComponent} from "./hero/hero.component";
 import {FormsModule} from "@angular/forms";
+import {AddHeroComponent} from "./add-hero/add-hero.component";
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {FormsModule} from "@angular/forms";
     HeroesComponent,
     ListOfHeroesComponent,
     HeroComponent,
+    AddHeroComponent
   ],
   imports: [
     BrowserModule,

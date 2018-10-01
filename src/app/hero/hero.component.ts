@@ -11,7 +11,7 @@ import {HeroInterface} from "../../../interfaces/hero.interface";
 })
 export class HeroComponent implements OnInit {
 
-  @Input() hero: HeroInterface;
+  hero: HeroInterface={};
 
   constructor(private listOfHeroesService: ListOfHeroesService,
               private route: ActivatedRoute) {

@@ -3,7 +3,6 @@ import {ListOfHeroesService} from "./list-of-heroes.service";
 import {map, tap} from "rxjs/operators";
 import {HeroInterface} from "../../../interfaces/hero.interface";
 
-
 @Component({
   selector: 'app-list-of-heroes',
   templateUrl: './list-of-heroes.component.html',
@@ -20,10 +19,9 @@ export class ListOfHeroesComponent implements OnInit {
   ngOnInit() {
     this.listOfHeroesService.getAllHeroes()
       .pipe(
-        tap(x => console.log('value', x)),
-        map((hero) => this.listOfHeroes.push(...hero))
+        map((hero:HeroInterface[]) => this.listOfHeroes.push(...hero))
       )
-      .subscribe()
+      .subscribe();
     console.log('this.listOfHeroes', this.listOfHeroes);
   }
 

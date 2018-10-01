@@ -5,17 +5,22 @@ import {HeroesComponent} from "./heroes/heroes.component";
 import {AppRoutingModule} from "./app.routing.module";
 import {ListOfHeroesComponent} from "./list-of-heroes/list-of-heroes.component";
 import {HttpClientModule} from "@angular/common/http";
+import {HeroComponent} from "./hero/hero.component";
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     ListOfHeroesComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

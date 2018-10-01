@@ -11,7 +11,7 @@ import {HeroInterface} from "../../../interfaces/hero.interface";
 export class ListOfHeroesComponent implements OnInit {
 
   listOfHeroes: HeroInterface[] = [];
-
+  hero: HeroInterface;
 
   constructor(private listOfHeroesService: ListOfHeroesService) {
   }
@@ -19,10 +19,21 @@ export class ListOfHeroesComponent implements OnInit {
   ngOnInit() {
     this.listOfHeroesService.getAllHeroes()
       .pipe(
-        map((hero:HeroInterface[]) => this.listOfHeroes.push(...hero))
+        map((hero: HeroInterface[]) => this.listOfHeroes.push(...hero))
       )
       .subscribe();
     console.log('this.listOfHeroes', this.listOfHeroes);
   }
 
+  erase(id) {
+    this.listOfHeroesService.deleteHero(id)
+      .pipe(
+        map(() => {
+          this.listOfHeroes = this.listOfHeroes
+            .filter(hero => hero.id !== id)
+        })
+      )
+      .subscribe()
+
+  }
 }

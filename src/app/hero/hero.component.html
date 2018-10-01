@@ -1,6 +1,6 @@
 <div>
   <p>Je suis {{hero?.name}} et je possède l'id numéro {{hero?.id}}</p>
-  <form #heroForm="ngForm" (ngSubmit)="editHero()"><label>Changer mon nom</label>
+  <form #heroForm="ngForm" (ngSubmit)="editHero(hero)"><label>Changer mon nom</label>
     <input type="text" [(ngModel)]="hero.name" type="text" placeholder="{{hero?.name}}" name="name">
     <button type="submit">edit</button>
   </form>

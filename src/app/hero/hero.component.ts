@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ListOfHeroesService} from "../list-of-heroes/list-of-heroes.service";
 import {ActivatedRoute} from "@angular/router";
 import {map, tap} from "rxjs/operators";
@@ -11,30 +11,26 @@ import {HeroInterface} from "../../../interfaces/hero.interface";
 })
 export class HeroComponent implements OnInit {
 
-  id;
-  hero: HeroInterface;
+  @Input() hero: HeroInterface;
 
   constructor(private listOfHeroesService: ListOfHeroesService,
               private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.route.params
-      .pipe(
-        map(params => this.id = params['id'])
-      )
-      .subscribe();
-
-    this.listOfHeroesService.getOneHero(this.id).pipe(
+    const id = this.route.snapshot.paramMap.get('id');
+    this.listOfHeroesService.getOneHero(id).pipe(
       map(hero => this.hero = hero),
       tap(x => console.log('this.hero', this.hero))
     )
       .subscribe()
   }
 
-  editHero() {
-    this.listOfHeroesService.updateHero(this.hero.id, this.hero.name).subscribe();
-    console.log('this.hero', this.hero.name);
+  editHero(value) {
+    console.log('this.hero', this.hero);
+    this.listOfHeroesService.updateHero(this.hero.id,value)
+      .subscribe();
+
   }
 
 }
